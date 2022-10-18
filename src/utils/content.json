@@ -1,0 +1,19 @@
+[
+  {
+    "name": "field1",
+    "label": "Test Label 1",
+    "placeholder": "Test placeholder 1",
+    "required": true
+  },
+  {
+    "name": "field2",
+    "label": "Test Label 2",
+    "placeholder": "Test placeholder 2"
+  },
+  {
+    "name": "field3",
+    "label": "Test Label 3",
+    "placeholder": "Test placeholder 3",
+    "required": true
+  }
+]
