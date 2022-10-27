@@ -1,7 +1,7 @@
 const primary = {
   black: '#000000',
   white: '#FFFFFF',
-  background: '#F8FBFC',
+  background: '#e3e4e2',
   carnation: '#FD5956',
   silver: '#CCCCCC',
 }

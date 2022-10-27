@@ -1,30 +1,32 @@
-export default questions = {
-  tipoDePersona: {
+const questions = [
+  {
     key: 'tipoDePersona',
     fields: [
       {
         type: 'radio',
         label: 'Tipo De Persona',
+        name: 'Persona',
         options: [
           {
             label: 'Natural',
-            value: 'natural',
+            value: 'Natural',
           },
           {
             label: 'Jurídica',
-            value: 'juridica',
+            value: 'Jurídica',
             children: [
               {
                 type: 'dropdown',
-                label: 'Tipos de Sociedad',
+                label: 'Tipo de Sociedad',
+                name: 'Sociedad',
                 options: [
                   {
                     label: 'Sociedad Limitada',
-                    value: 'sociedadLimitada',
+                    value: 'Sociedad Limitada',
                   },
                   {
                     label: 'Sociedad Anónima',
-                    value: 'sociedadAnonima',
+                    value: 'Sociedad Anónima',
                   },
                 ],
                 required: true,
@@ -37,42 +39,48 @@ export default questions = {
     ],
     next: 'datosPersonales',
   },
-  datosPersonales: {
+  {
     key: 'datosPersonales',
     fields: [
       {
         type: 'text',
         label: 'Nombre de la Empresa',
+        name: 'Nombre Empresa',
         placeholder: 'Nombre de la Empresa',
         required: true,
       },
       {
         type: 'text',
         label: 'Actividad Económica',
+        name: 'Actividad Económica',
         placeholder: 'Actividad Económica',
         required: true,
       },
       {
         type: 'text',
         label: 'Representante Legal',
+        name: 'Representante Legal',
         placeholder: 'Representante Legal',
         required: true,
       },
       {
-        type: 'text',
+        type: 'email',
         label: 'Correo Electrónico',
+        name: 'Email',
         placeholder: 'Correo Electrónico',
         required: true,
       },
       {
         type: 'text',
         label: 'Número Telefónico',
+        name: 'Número Telefónico',
         placeholder: 'Número Telefónico',
         required: true,
       },
       {
         type: 'text',
         label: 'Número Celular',
+        name: 'Número Celular',
         placeholder: 'Número Celular',
         required: true,
       },
@@ -80,34 +88,38 @@ export default questions = {
     back: 'tipoDePersona',
     next: 'demandasLaborales',
   },
-  demandasLaborales: {
+  {
     key: 'demandasLaborales',
     fields: [
       {
         type: 'radio',
         label: '¿Actualmente tiene demandas laborales en contra de su empresa?',
+        name: 'Demandas Laborales',
         options: [
           {
             label: 'Si',
-            value: 'si',
+            value: 'Si',
             children: [
               {
                 type: 'text',
                 label: '¿En qué juzgado se encuentra la demanda?',
+                name: 'Juzgado',
                 placeholder: '¿En qué juzgado se encuentra la demanda?',
                 required: true,
               },
               {
                 type: 'radio',
                 label: '¿Sabe en qué etapa va la demanda?',
+                name: 'Estado Demanda',
                 options: [
                   {
                     label: 'Si',
-                    value: 'si',
+                    value: 'Si',
                     children: [
                       {
                         type: 'text',
                         label: '¿Cuál?',
+                        name: '¿Cuál?',
                         placeholder: '¿Cuál?',
                         required: true,
                       },
@@ -115,7 +127,7 @@ export default questions = {
                   },
                   {
                     label: 'No',
-                    value: 'no',
+                    value: 'No',
                   },
                 ],
                 required: true,
@@ -124,7 +136,7 @@ export default questions = {
           },
           {
             label: 'No',
-            value: 'no',
+            value: 'No',
           },
         ],
         required: true,
@@ -133,48 +145,51 @@ export default questions = {
     back: 'datosPersonales',
     next: 'numeroEmpleados',
   },
-  numeroEmpleados: {
+  {
     key: 'numeroEmpleados',
     fields: [
       {
         type: 'radio',
         label: 'Actualmente su empresa cuenta con:',
+        name: 'Número Empleados',
         options: [
           {
             label: 'Menos de 5 empleados',
-            value: 'menosDe5',
+            value: '< 5',
           },
           {
             label: 'Más de 5 y menos de 10 empleados',
-            value: 'masDe5menosDe10',
+            value: '> 5 < 10',
             children: [
               {
                 type: 'radio',
                 label: '¿Actualmente cuenta con reglamento interno de trabajo?',
+                name: 'Reglamento Interno',
                 options: [
                   {
                     label: 'Si',
-                    value: 'si',
+                    value: 'Si',
                     children: [
                       {
                         type: 'radio',
                         label: 'La última actualización fue:',
+                        name: 'Última Actualización',
                         options: [
                           {
                             label: 'Menos de 2 años',
-                            value: 'menosDe2',
+                            value: '< 2',
                           },
                           {
                             label: 'Más de 2 años y menos de 5 años',
-                            value: 'masDe2menosDe5',
+                            value: '> 2 < 5',
                           },
                           {
                             label: 'Más de 5 años y menos de 10 años',
-                            value: 'masDe5menosDe10',
+                            value: '> 5 < 10',
                           },
                           {
                             label: 'Más de 10 años',
-                            value: 'masDe10',
+                            value: '> 10',
                           },
                         ],
                         required: true,
@@ -183,7 +198,7 @@ export default questions = {
                   },
                   {
                     label: 'No',
-                    value: 'no',
+                    value: 'No',
                   },
                 ],
                 required: true,
@@ -191,30 +206,32 @@ export default questions = {
               {
                 type: 'radio',
                 label: '¿Actualmente cuenta con manual de procedimiento de descargos o sanciones?',
+                name: 'Manual de Sanciones',
                 options: [
                   {
                     label: 'Si',
-                    value: 'si',
+                    value: 'Si',
                     children: [
                       {
                         type: 'radio',
                         label: 'La última actualización fue:',
+                        name: 'Últimos Cambios',
                         options: [
                           {
                             label: 'Menos de 2 años',
-                            value: 'menosDe2',
+                            value: '< 2',
                           },
                           {
                             label: 'Más de 2 años y menos de 5 años',
-                            value: 'masDe2menosDe5',
+                            value: '> 2 < 5',
                           },
                           {
                             label: 'Más de 5 años y menos de 10 años',
-                            value: 'masDe5menosDe10',
+                            value: '> 5 < 10',
                           },
                           {
                             label: 'Más de 10 años',
-                            value: 'masDe10',
+                            value: '> 10',
                           },
                         ],
                         required: true,
@@ -223,7 +240,7 @@ export default questions = {
                   },
                   {
                     label: 'No',
-                    value: 'no',
+                    value: 'No',
                   },
                 ],
                 required: true,
@@ -232,35 +249,37 @@ export default questions = {
           },
           {
             label: 'Más de 10 y menos de 20 empleados',
-            value: 'masDe10menosDe20',
+            value: '> 10 < 20',
             children: [
               {
                 type: 'radio',
                 label: '¿Actualmente cuenta con reglamento interno de trabajo?',
+                name: 'Reglamento Interno',
                 options: [
                   {
                     label: 'Si',
-                    value: 'si',
+                    value: 'Si',
                     children: [
                       {
                         type: 'radio',
                         label: 'La última actualización fue:',
+                        name: 'Última Actualización',
                         options: [
                           {
                             label: 'Menos de 2 años',
-                            value: 'menosDe2',
+                            value: '< 2',
                           },
                           {
                             label: 'Más de 2 años y menos de 5 años',
-                            value: 'masDe2menosDe5',
+                            value: '> 2 < 5',
                           },
                           {
                             label: 'Más de 5 años y menos de 10 años',
-                            value: 'masDe5menosDe10',
+                            value: '> 5 < 10',
                           },
                           {
                             label: 'Más de 10 años',
-                            value: 'masDe10',
+                            value: '> 10',
                           },
                         ],
                         required: true,
@@ -269,7 +288,7 @@ export default questions = {
                   },
                   {
                     label: 'No',
-                    value: 'no',
+                    value: 'No',
                   },
                 ],
                 required: true,
@@ -277,30 +296,32 @@ export default questions = {
               {
                 type: 'radio',
                 label: '¿Actualmente cuenta con manual de procedimiento de descargos o sanciones?',
+                name: 'Manual de Sanciones',
                 options: [
                   {
                     label: 'Si',
-                    value: 'si',
+                    value: 'Si',
                     children: [
                       {
                         type: 'radio',
                         label: 'La última actualización fue:',
+                        name: 'Últimos Cambios',
                         options: [
                           {
                             label: 'Menos de 2 años',
-                            value: 'menosDe2',
+                            value: '< 2',
                           },
                           {
                             label: 'Más de 2 años y menos de 5 años',
-                            value: 'masDe2menosDe5',
+                            value: '> 2 < 5',
                           },
                           {
                             label: 'Más de 5 años y menos de 10 años',
-                            value: 'masDe5menosDe10',
+                            value: '> 5 < 10',
                           },
                           {
                             label: 'Más de 10 años',
-                            value: 'masDe10',
+                            value: '> 10',
                           },
                         ],
                         required: true,
@@ -309,7 +330,7 @@ export default questions = {
                   },
                   {
                     label: 'No',
-                    value: 'no',
+                    value: 'No',
                   },
                 ],
                 required: true,
@@ -318,35 +339,37 @@ export default questions = {
           },
           {
             label: 'Más de 20 y menos de 50 empleados',
-            value: 'masDe20menosDe50',
+            value: '> 20 < 50',
             children: [
               {
                 type: 'radio',
                 label: '¿Actualmente cuenta con reglamento interno de trabajo?',
+                name: 'Reglamento Interno',
                 options: [
                   {
                     label: 'Si',
-                    value: 'si',
+                    value: 'Si',
                     children: [
                       {
                         type: 'radio',
                         label: 'La última actualización fue:',
+                        name: 'Última Actualización',
                         options: [
                           {
                             label: 'Menos de 2 años',
-                            value: 'menosDe2',
+                            value: '< 2',
                           },
                           {
                             label: 'Más de 2 años y menos de 5 años',
-                            value: 'masDe2menosDe5',
+                            value: '> 2 < 5',
                           },
                           {
                             label: 'Más de 5 años y menos de 10 años',
-                            value: 'masDe5menosDe10',
+                            value: '> 5 < 10',
                           },
                           {
                             label: 'Más de 10 años',
-                            value: 'masDe10',
+                            value: '> 10',
                           },
                         ],
                         required: true,
@@ -355,7 +378,7 @@ export default questions = {
                   },
                   {
                     label: 'No',
-                    value: 'no',
+                    value: 'No',
                   },
                 ],
                 required: true,
@@ -363,30 +386,32 @@ export default questions = {
               {
                 type: 'radio',
                 label: '¿Actualmente cuenta con manual de procedimiento de descargos o sanciones?',
+                name: 'Manual de Sanciones',
                 options: [
                   {
                     label: 'Si',
-                    value: 'si',
+                    value: 'Si',
                     children: [
                       {
                         type: 'radio',
                         label: 'La última actualización fue:',
+                        name: 'Últimos Cambios',
                         options: [
                           {
                             label: 'Menos de 2 años',
-                            value: 'menosDe2',
+                            value: '< 2',
                           },
                           {
                             label: 'Más de 2 años y menos de 5 años',
-                            value: 'masDe2menosDe5',
+                            value: '> 2 < 5',
                           },
                           {
                             label: 'Más de 5 años y menos de 10 años',
-                            value: 'masDe5menosDe10',
+                            value: '> 5 < 10',
                           },
                           {
                             label: 'Más de 10 años',
-                            value: 'masDe10',
+                            value: '> 10',
                           },
                         ],
                         required: true,
@@ -395,7 +420,7 @@ export default questions = {
                   },
                   {
                     label: 'No',
-                    value: 'no',
+                    value: 'No',
                   },
                 ],
                 required: true,
@@ -404,35 +429,37 @@ export default questions = {
           },
           {
             label: 'Más de 50 y menos de 100 empleados',
-            value: 'masDe50menosDe100',
+            value: '> 50 < 100',
             children: [
               {
                 type: 'radio',
                 label: '¿Actualmente cuenta con reglamento interno de trabajo?',
+                name: 'Reglamento Interno',
                 options: [
                   {
                     label: 'Si',
-                    value: 'si',
+                    value: 'Si',
                     children: [
                       {
                         type: 'radio',
                         label: 'La última actualización fue:',
+                        name: 'Última Actualización',
                         options: [
                           {
                             label: 'Menos de 2 años',
-                            value: 'menosDe2',
+                            value: '< 2',
                           },
                           {
                             label: 'Más de 2 años y menos de 5 años',
-                            value: 'masDe2menosDe5',
+                            value: '> 2 < 5',
                           },
                           {
                             label: 'Más de 5 años y menos de 10 años',
-                            value: 'masDe5menosDe10',
+                            value: '> 5 < 10',
                           },
                           {
                             label: 'Más de 10 años',
-                            value: 'masDe10',
+                            value: '> 10',
                           },
                         ],
                         required: true,
@@ -441,7 +468,7 @@ export default questions = {
                   },
                   {
                     label: 'No',
-                    value: 'no',
+                    value: 'No',
                   },
                 ],
                 required: true,
@@ -449,30 +476,32 @@ export default questions = {
               {
                 type: 'radio',
                 label: '¿Actualmente cuenta con manual de procedimiento de descargos o sanciones?',
+                name: 'Manual de Sanciones',
                 options: [
                   {
                     label: 'Si',
-                    value: 'si',
+                    value: 'Si',
                     children: [
                       {
                         type: 'radio',
                         label: 'La última actualización fue:',
+                        name: 'Últimos Cambios',
                         options: [
                           {
                             label: 'Menos de 2 años',
-                            value: 'menosDe2',
+                            value: '< 2',
                           },
                           {
                             label: 'Más de 2 años y menos de 5 años',
-                            value: 'masDe2menosDe5',
+                            value: '> 2 < 5',
                           },
                           {
                             label: 'Más de 5 años y menos de 10 años',
-                            value: 'masDe5menosDe10',
+                            value: '> 5 < 10',
                           },
                           {
                             label: 'Más de 10 años',
-                            value: 'masDe10',
+                            value: '> 10',
                           },
                         ],
                         required: true,
@@ -481,7 +510,7 @@ export default questions = {
                   },
                   {
                     label: 'No',
-                    value: 'no',
+                    value: 'No',
                   },
                 ],
                 required: true,
@@ -490,35 +519,37 @@ export default questions = {
           },
           {
             label: 'Más de 100 y menos de 200 empleados',
-            value: 'masDe100menosDe200',
+            value: '> 100 < 200',
             children: [
               {
                 type: 'radio',
                 label: '¿Actualmente cuenta con reglamento interno de trabajo?',
+                name: 'Reglamento Interno',
                 options: [
                   {
                     label: 'Si',
-                    value: 'si',
+                    value: 'Si',
                     children: [
                       {
                         type: 'radio',
                         label: 'La última actualización fue:',
+                        name: 'Última Actualización',
                         options: [
                           {
                             label: 'Menos de 2 años',
-                            value: 'menosDe2',
+                            value: '< 2',
                           },
                           {
                             label: 'Más de 2 años y menos de 5 años',
-                            value: 'masDe2menosDe5',
+                            value: '> 2 < 5',
                           },
                           {
                             label: 'Más de 5 años y menos de 10 años',
-                            value: 'masDe5menosDe10',
+                            value: '> 5 < 10',
                           },
                           {
                             label: 'Más de 10 años',
-                            value: 'masDe10',
+                            value: '> 10',
                           },
                         ],
                         required: true,
@@ -527,7 +558,7 @@ export default questions = {
                   },
                   {
                     label: 'No',
-                    value: 'no',
+                    value: 'No',
                   },
                 ],
                 required: true,
@@ -535,30 +566,32 @@ export default questions = {
               {
                 type: 'radio',
                 label: '¿Actualmente cuenta con manual de procedimiento de descargos o sanciones?',
+                name: 'Manual de Sanciones',
                 options: [
                   {
                     label: 'Si',
-                    value: 'si',
+                    value: 'Si',
                     children: [
                       {
                         type: 'radio',
                         label: 'La última actualización fue:',
+                        name: 'Últimos Cambios',
                         options: [
                           {
                             label: 'Menos de 2 años',
-                            value: 'menosDe2',
+                            value: '< 2',
                           },
                           {
                             label: 'Más de 2 años y menos de 5 años',
-                            value: 'masDe2menosDe5',
+                            value: '> 2 < 5',
                           },
                           {
                             label: 'Más de 5 años y menos de 10 años',
-                            value: 'masDe5menosDe10',
+                            value: '> 5 < 10',
                           },
                           {
                             label: 'Más de 10 años',
-                            value: 'masDe10',
+                            value: '> 10',
                           },
                         ],
                         required: true,
@@ -567,7 +600,7 @@ export default questions = {
                   },
                   {
                     label: 'No',
-                    value: 'no',
+                    value: 'No',
                   },
                 ],
                 required: true,
@@ -576,35 +609,37 @@ export default questions = {
           },
           {
             label: 'Más de 200 empleados',
-            value: 'masDe200',
+            value: '> 200',
             children: [
               {
                 type: 'radio',
                 label: '¿Actualmente cuenta con reglamento interno de trabajo?',
+                name: 'Reglamento Interno',
                 options: [
                   {
                     label: 'Si',
-                    value: 'si',
+                    value: 'Si',
                     children: [
                       {
                         type: 'radio',
                         label: 'La última actualización fue:',
+                        name: 'Última Actualización',
                         options: [
                           {
                             label: 'Menos de 2 años',
-                            value: 'menosDe2',
+                            value: '< 2',
                           },
                           {
                             label: 'Más de 2 años y menos de 5 años',
-                            value: 'masDe2menosDe5',
+                            value: '> 2 < 5',
                           },
                           {
                             label: 'Más de 5 años y menos de 10 años',
-                            value: 'masDe5menosDe10',
+                            value: '> 5 < 10',
                           },
                           {
                             label: 'Más de 10 años',
-                            value: 'masDe10',
+                            value: '> 10',
                           },
                         ],
                         required: true,
@@ -613,7 +648,7 @@ export default questions = {
                   },
                   {
                     label: 'No',
-                    value: 'no',
+                    value: 'No',
                   },
                 ],
                 required: true,
@@ -621,30 +656,32 @@ export default questions = {
               {
                 type: 'radio',
                 label: '¿Actualmente cuenta con manual de procedimiento de descargos o sanciones?',
+                name: 'Manual de Sanciones',
                 options: [
                   {
                     label: 'Si',
-                    value: 'si',
+                    value: 'Si',
                     children: [
                       {
                         type: 'radio',
                         label: 'La última actualización fue:',
+                        name: 'Últimos Cambios',
                         options: [
                           {
                             label: 'Menos de 2 años',
-                            value: 'menosDe2',
+                            value: '< 2',
                           },
                           {
                             label: 'Más de 2 años y menos de 5 años',
-                            value: 'masDe2menosDe5',
+                            value: '> 2 < 5',
                           },
                           {
                             label: 'Más de 5 años y menos de 10 años',
-                            value: 'masDe5menosDe10',
+                            value: '> 5 < 10',
                           },
                           {
                             label: 'Más de 10 años',
-                            value: 'masDe10',
+                            value: '> 10',
                           },
                         ],
                         required: true,
@@ -653,7 +690,7 @@ export default questions = {
                   },
                   {
                     label: 'No',
-                    value: 'no',
+                    value: 'No',
                   },
                 ],
                 required: true,
@@ -667,76 +704,100 @@ export default questions = {
     back: 'demandasLaborales',
     next: 'contratoLaboral',
   },
-  contratoLaboral: {
+  {
     key: 'contratoLaboral',
     fields: [
       {
         type: 'radio',
         label: '¿Actualmente todos sus empleados cuentan con contrato laboral por escrito?',
+        name: 'Contrato Laboral Escrito',
         options: [
           {
             label: 'Si',
-            value: 'si',
+            value: 'Si',
           },
           {
             label: 'No',
-            value: 'no',
+            value: 'No',
+          },
+        ],
+        required: true,
+      },
+      {
+        type: 'radio',
+        label: '¿Actualmente paga usted seguridad social a sus empleados?',
+        name: 'Paga Seguridad Social',
+        options: [
+          {
+            label: 'Si',
+            value: 'Si',
+          },
+          {
+            label: 'No',
+            value: 'No',
           },
         ],
         required: true,
       },
     ],
     back: 'numeroEmpleados',
-    next: 'seguridadSocial',
+    next: 'procesosAbiertos',
   },
-  seguridadSocial: {
-    key: 'seguridadSocial',
+  {
+    key: 'procesosAbiertos',
     fields: [
       {
         type: 'radio',
         label: 'Actualmente la empresa está inmersa en procesos con:',
+        name: 'Procesos Con',
         options: [
           {
             label: 'UGPP',
-            value: 'ugpp',
+            value: 'UGPP',
           },
           {
             label: 'Dian',
-            value: 'dian',
+            value: 'Dian',
           },
           {
             label: 'Fiscalía',
-            value: 'fiscalia',
+            value: 'Fiscalía',
           },
           {
             label: 'Procuraduría',
-            value: 'procuraduria',
+            value: 'Procuraduría',
           },
           {
             label: 'Contraloría',
-            value: 'contraloria',
+            value: 'Contraloría',
           },
           {
             label: 'Administración Municipal',
-            value: 'administracionMunicipal',
+            value: 'Administración Municipal',
           },
           {
-            label: 'Dian',
-            value: 'dian',
+            label: 'Seccional de Salud Departamental',
+            value: 'Seccional de Salud Departamental',
           },
           {
-            label: 'Dian',
-            value: 'dian',
+            label: 'Corporación Autónoma Regional',
+            value: 'Corporación Autónoma Regional',
           },
           {
-            label: 'Dian',
-            value: 'dian',
+            label: 'Otras Entidades del Estado',
+            value: 'Otras Entidades del Estado',
+          },
+          {
+            label: 'Ninguna',
+            value: 'Ninguna',
           },
         ],
         required: true,
       },
     ],
-    back: 'numeroEmpleados',
-    next: '',
+    back: 'contratoLaboral',
+    next: 'SUBMIT',
   },
-}
+]
+
+export default questions

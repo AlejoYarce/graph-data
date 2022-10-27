@@ -124,6 +124,14 @@ const style = (theme) => css`
     }
   }
 
+  .is-danger {
+    margin-top: 10px;
+    color: #b24040;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 800;
+  }
+
   /* 3rd parties */
   /* 3rd parties */
 `
