@@ -11,7 +11,7 @@ const handler = async (req, res) => {
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
       },
-    }
+    },
   )
 
   res.status(200).json({ data: data.records })

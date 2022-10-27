@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { InputContainer, Label, InputField, ErrorMessage } from './styles'
+import {
+  InputContainer, Label, InputField, ErrorMessage,
+} from './styles'
 
 const validRequired = (required, value) => (required ? value !== '' : true)
 
@@ -23,12 +25,12 @@ const Input = ({
   // disabled,
 }) => {
   const onChangeHandler = (e) => {
-    const value = e.target.value
-    const valid = validRequired(required, value)
-      && validMatch(pattern, value)
-      && validLimit(limit, value)
+    const { value: targetValue } = e.target
+    const valid = validRequired(required, targetValue)
+      && validMatch(pattern, targetValue)
+      && validLimit(limit, targetValue)
 
-    onChange(name, value, valid)
+    onChange(name, targetValue, valid)
   }
 
   return (
