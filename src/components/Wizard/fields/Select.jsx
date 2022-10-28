@@ -2,16 +2,16 @@ import React from 'react'
 
 import { DropDown, Label } from './styles'
 
-const Select = ({ items, label }) => {
+const Select = ({ items, name, label }) => {
   return (
     <div>
       <Label>{label}</Label>
       <div>
-        <DropDown name="country">
+        <DropDown name={name}>
           <option value="">Select a {label}</option>
-          {items?.map((name) => (
-            <option key={name} value={name}>
-              {name}
+          {items?.map((item, index) => (
+            <option key={`opt-${index}`} value={item.value}>
+              {item.label}
             </option>
           ))}
         </DropDown>

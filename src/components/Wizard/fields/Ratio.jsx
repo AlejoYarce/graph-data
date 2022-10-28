@@ -5,25 +5,19 @@ import { RadioContainer } from './styles'
 
 const required = (value) => (value && value !== '' ? undefined : 'Required')
 
-const Ratio = () => {
+const Ratio = ({ name, groupName, options }) => {
   const [status, validation] = useValidation([required])
 
   return (
-    <div className="field">
+    <div>
       <RadioContainer>
-        <Collection object touched name="myGender" {...validation}>
-          <label className="radio">
-            <Input type="radio" name="gender" value="M" />
-            Male
-          </label>
-          <label className="radio">
-            <Input type="radio" name="gender" value="F" />
-            Female
-          </label>
-          <label className="radio">
-            <Input type="radio" name="gender" value="Other" />
-            Other
-          </label>
+        <Collection object touched name={name} {...validation}>
+          {options?.map((option) => (
+            <label>
+              <Input type="radio" name={groupName} value={option?.value} />
+              {option?.label}
+            </label>
+          ))}
         </Collection>
       </RadioContainer>
       {status.error && <p className="help is-danger">{status.error}</p>}

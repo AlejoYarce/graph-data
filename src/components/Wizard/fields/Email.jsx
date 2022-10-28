@@ -9,18 +9,17 @@ const email = (value) =>
     : 'Mail not Valid'
 const required = (value) => (value && value !== '' ? undefined : 'Required')
 
-const Email = () => {
+const Email = ({ label, name, placeholder }) => {
   const [status, validation] = useValidation([required, email])
   return (
-    <div className="field">
-      <Label>Email</Label>
-      <div className="control">
+    <div>
+      <Label>{label}</Label>
+      <div>
         <Input
           touched
           type="text"
-          name="email"
-          placeholder="Type an email..."
-          className="input"
+          name={name}
+          placeholder={placeholder}
           {...validation}
         />
       </div>

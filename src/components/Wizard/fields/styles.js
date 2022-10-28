@@ -10,6 +10,7 @@ export const CustomInput = styled(Input)`
   width: 400px;
   height: auto;
   margin-top: 8px;
+  margin-bottom: 20px;
 `
 
 export const DropDown = styled(Select)`
@@ -28,7 +29,7 @@ export const Label = styled.label`
 
 export const RadioContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
 
   label {

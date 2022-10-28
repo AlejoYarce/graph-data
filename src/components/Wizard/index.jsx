@@ -6,7 +6,7 @@ import { useMultipleForm } from 'usetheform'
 import questions from '~app/utils/questions'
 
 // Components
-import Form from './forms'
+import Form from '~app/components/Wizard/forms'
 
 import { Container, Output } from './styles'
 
