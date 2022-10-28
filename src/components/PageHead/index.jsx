@@ -45,9 +45,7 @@ const PageHead = ({
       </>
     )}
     {keywords && !isEmpty(keywords) && (
-      <>
-        <meta name="keywords" content={keywords.join(', ')}></meta>
-      </>
+      <meta name="keywords" content={keywords.join(', ')} />
     )}
   </Head>
 )

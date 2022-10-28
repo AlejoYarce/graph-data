@@ -1,25 +1,27 @@
+import React from 'react'
+import dynamic from 'next/dynamic'
+
 import PageHead from '~app/components/PageHead'
 import Navbar from '~app/components/ui/Navbar'
 
-import dynamic from 'next/dynamic'
 const DynamicWizard = dynamic(
   () => import('~app/components/Wizard'),
-  { ssr: false }
+  { ssr: false },
 )
 
-export default function HomePage() {
-  return (
-    <>
-      <PageHead
-        title='Forms'
-        description='Evalua tu Compañía fácil y sencillo en pocos pasos'
-      />
+const HomePage = () => (
+  <>
+    <PageHead
+      title="Forms"
+      description="Evalua tu Compañía fácil y sencillo en pocos pasos"
+    />
 
-      <Navbar />
+    <Navbar />
 
-      <main>
-        <DynamicWizard />
-      </main>
-    </>
-  )
-}
+    <main>
+      <DynamicWizard />
+    </main>
+  </>
+)
+
+export default HomePage

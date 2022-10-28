@@ -1,7 +1,6 @@
 import React from 'react'
 import { Global, css } from '@emotion/react'
 
-import { mq } from './media'
 import { styled } from './theme'
 
 const style = (theme) => css`
