@@ -12,10 +12,12 @@ import { Container, Output } from './styles'
 
 const Wizard = () => {
   const [currentPage, setPage] = useState(1)
+
   const nextPage = () => setPage((prev) => ++prev)
   const prevPage = () => setPage((prev) => --prev)
 
   const [getWizardState, wizard] = useMultipleForm((state) => updateJson(state))
+
   const onSubmitWizard = () => console.log(getWizardState())
 
   const [wizardState, updateJson] = useState({})
@@ -25,6 +27,7 @@ const Wizard = () => {
       {questions.map((item, index) => {
         return (
           <Form
+            className={currentPage !== (index + 1) && 'notVisible'}
             key={`form+${index}`}
             currentPage={index + 1}
             currentStep={item?.key}
@@ -33,7 +36,8 @@ const Wizard = () => {
             next={item?.next}
             name={item?.name}
             prevPage={prevPage}
-            onSubmit={nextPage}
+            nextPage={nextPage}
+            onSubmitWizard={onSubmitWizard}
             {...wizard}
           />
         )

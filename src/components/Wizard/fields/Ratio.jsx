@@ -1,20 +1,26 @@
 import React from 'react'
 import { Input, useValidation, Collection } from 'usetheform'
 
-import { RadioContainer } from './styles'
+import { Label, RadioContainer } from './styles'
 
 const required = (value) => (value && value !== '' ? undefined : 'Required')
 
-const Ratio = ({ name, groupName, options }) => {
+const Ratio = ({ label, name, groupName, onChange, options }) => {
   const [status, validation] = useValidation([required])
 
   return (
     <div>
       <RadioContainer>
+        <Label>{label}</Label>
         <Collection object touched name={name} {...validation}>
           {options?.map((option) => (
             <label>
-              <Input type="radio" name={groupName} value={option?.value} />
+              <Input
+                type="radio"
+                name={groupName}
+                onChange={(e) => onChange(e, options)}
+                value={option?.value}
+              />
               {option?.label}
             </label>
           ))}

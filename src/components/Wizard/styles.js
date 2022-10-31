@@ -19,12 +19,17 @@ export const FormContainer = styled(Form)`
   box-shadow: 0 1px 1px rgb(16 27 30 / 15%), 0 2px 2px rgb(16 27 30 / 15%),
     0 4px 4px rgb(16 27 30 / 15%), 0 8px 8px rgb(16 27 30 / 15%),
     0 16px 16px rgb(16 27 30 / 15%);
+
+  &.notVisible {
+    display: none;
+  }
 `
 
 export const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
+  margin-top: 30px;
 `
 
 export const Container = styled.div`
