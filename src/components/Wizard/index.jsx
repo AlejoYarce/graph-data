@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ReactJson from 'react-json-view'
 import { useMultipleForm } from 'usetheform'
 
 // Data
@@ -8,7 +7,7 @@ import questions from '~app/utils/questions'
 // Components
 import Form from '~app/components/Wizard/forms'
 
-import { Container, Output } from './styles'
+import { Container } from './styles'
 
 const Wizard = () => {
   const [currentPage, setPage] = useState(1)
@@ -19,8 +18,6 @@ const Wizard = () => {
   const [getWizardState, wizard] = useMultipleForm((state) => updateJson(state))
 
   const onSubmitWizard = () => console.log(getWizardState())
-
-  const [wizardState, updateJson] = useState({})
 
   return (
     <Container>
@@ -42,10 +39,6 @@ const Wizard = () => {
           />
         )
       })}
-
-      <Output>
-        <ReactJson src={wizardState} />
-      </Output>
     </Container>
   )
 }
