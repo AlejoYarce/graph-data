@@ -34,7 +34,7 @@ const Wizard = () => {
             name={item?.name}
             prevPage={prevPage}
             nextPage={nextPage}
-            onSubmitWizard={onSubmitWizard}
+            onSubmit={onSubmitWizard}
             {...wizard}
           />
         )
