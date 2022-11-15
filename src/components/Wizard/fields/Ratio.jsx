@@ -13,8 +13,8 @@ const Ratio = ({ label, name, groupName, onChange, options }) => {
       <RadioContainer>
         <Label>{label}</Label>
         <Collection object touched name={name} {...validation}>
-          {options?.map((option) => (
-            <label>
+          {options?.map((option, index) => (
+            <label key={`radio${index}`}>
               <Input
                 type="radio"
                 name={groupName}

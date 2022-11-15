@@ -60,7 +60,7 @@ const Form = ({
   fields,
   nextPage,
   prevPage,
-  onSubmitWizard,
+  onSubmit,
   ...props
 }) => {
   const [children, setChildren] = useState([])
@@ -94,12 +94,12 @@ const Form = ({
 
         <div>
           {next === 'SUBMIT' ? (
-            <Button type="submit" onClick={onSubmitWizard}>
+            <Button type="submit">
               Finalizar
             </Button>
           ) : (
             next && (
-              <Button type="button" onClick={nextPage}>
+              <Button type="submit" onClick={nextPage}>
                 Siguiente
               </Button>
             )
