@@ -3,7 +3,7 @@ import { Input, useValidation } from 'usetheform'
 
 import { Check } from './styles'
 
-const required = (value) => (value && value !== '' ? undefined : 'Required')
+const required = (value) => (value && value !== '' ? undefined : 'Campo requerido')
 
 const TermAndConditions = () => {
   const [status, validation] = useValidation([required])

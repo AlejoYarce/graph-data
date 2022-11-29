@@ -3,9 +3,9 @@ import { Input, useValidation, Collection } from 'usetheform'
 
 import { Label, RadioContainer } from './styles'
 
-const required = (value) => (value && value !== '' ? undefined : 'Required')
+const required = (value) => (value && value !== '' ? undefined : 'Campo requerido')
 
-const Ratio = ({ label, name, groupName, onChange, options }) => {
+const Radio = ({ label, name, onChange = () => { }, options }) => {
   const [status, validation] = useValidation([required])
 
   return (
@@ -14,21 +14,22 @@ const Ratio = ({ label, name, groupName, onChange, options }) => {
         <Label>{label}</Label>
         <Collection object touched name={name} {...validation}>
           {options?.map((option, index) => (
-            <label key={`radio${index}`}>
+            <label key={`${name}-radio-${index}`}>
               <Input
                 type="radio"
-                name={groupName}
-                onChange={(e) => onChange(e, options)}
+                name={name}
+                onChange={(e) => onChange(e, options, name, label)}
                 value={option?.value}
               />
               {option?.label}
+              <span className="checkmark"></span>
             </label>
           ))}
         </Collection>
+        {status.error && <p className="help is-danger">{status.error}</p>}
       </RadioContainer>
-      {status.error && <p className="help is-danger">{status.error}</p>}
     </div>
   )
 }
 
-export default Ratio
+export default Radio

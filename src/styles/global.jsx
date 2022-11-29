@@ -124,11 +124,11 @@ const style = (theme) => css`
   }
 
   .is-danger {
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
     color: #b24040;
-    font-size: 14px;
-    text-align: center;
-    font-weight: 800;
+    font-size: 12px;
+    font-weight: 600;
   }
 
   /* 3rd parties */

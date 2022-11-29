@@ -1,50 +1,58 @@
 import React, { useState } from 'react'
 
 import Text from '~app/components/Wizard/fields/Text'
-import Ratio from '~app/components/Wizard/fields/Ratio'
-import Email from '~app/components/Wizard/fields/Email'
+import Radio from '~app/components/Wizard/fields/Radio'
 import Select from '~app/components/Wizard/fields/Select'
-import Reset from '~app/components/Wizard/buttons/Reset'
 
-import { Button, ButtonsContainer, FormContainer } from '../styles'
+import { FieldsContainer, FormContainer } from '../styles'
+import ButtonsContainer from '../buttons/ButtonsContainer'
 
-const renderElements = (field, onChange) => {
+const renderElements = (field, onChange, _index) => {
   switch (field?.type) {
     case 'radio':
       return (
-        <Ratio
-          onChange={onChange}
+        <Radio
+          key={`${field?.name}-${_index}`}
           label={field?.label}
-          options={field?.options}
-          groupName={field?.name}
           name={field?.name}
+          onChange={onChange}
+          options={field?.options}
         />
       )
 
     case 'text':
       return (
         <Text
-          label={field?.label}
-          name={field?.name}
-          placeholder={field?.placeholder}
+          key={`${field?.name}-${_index}`}
+          {...field}
         />
       )
 
     case 'email':
       return (
-        <Email
-          label={field?.label}
-          name={field?.name}
-          placeholder={field?.placeholder}
+        <Text
+          key={`${field?.name}-${_index}`}
+          {...field}
+          isEmail
+        />
+      )
+
+    case 'number':
+      return (
+        <Text
+          key={`${field?.name}-${_index}`}
+          {...field}
+          isNumeric
         />
       )
 
     case 'dropdown':
       return (
         <Select
+          key={`${field?.name}-${_index}`}
           label={field?.label}
           name={field?.name}
-          items={field?.options}
+          options={field?.options}
         />
       )
 
@@ -54,16 +62,16 @@ const renderElements = (field, onChange) => {
 }
 
 const Form = ({
-  back,
-  next,
+  formItem,
   currentStep,
-  fields,
-  nextPage,
-  prevPage,
-  onSubmit,
+  prevPageHandler,
   ...props
 }) => {
   const [children, setChildren] = useState([])
+
+  const back = formItem?.back
+  const next = formItem?.next
+  const fields = formItem?.fields
 
   const onChange = (e, options) => {
     const item = options.find((child) => child.label === e)
@@ -73,39 +81,17 @@ const Form = ({
 
   return (
     <FormContainer {...props}>
-      <div>
-        {fields?.map((field, _index) => renderElements(field, onChange))}
+      <FieldsContainer>
+        {fields?.map((field, _index) => renderElements(field, onChange, _index))}
 
-        {children?.map((field, _index) => renderElements(field, onChange))}
-      </div>
+        {children?.map((field, _index) => renderElements(field, onChange, _index))}
+      </FieldsContainer>
 
-      <ButtonsContainer>
-        <div>
-          {back && (
-            <Button type="button" onClick={prevPage}>
-              Anterior
-            </Button>
-          )}
-        </div>
-
-        <div>
-          <Reset />
-        </div>
-
-        <div>
-          {next === 'SUBMIT' ? (
-            <Button type="submit">
-              Finalizar
-            </Button>
-          ) : (
-            next && (
-              <Button type="submit" onClick={nextPage}>
-                Siguiente
-              </Button>
-            )
-          )}
-        </div>
-      </ButtonsContainer>
+      <ButtonsContainer
+        back={back}
+        prevPageHandler={prevPageHandler}
+        next={next}
+      />
     </FormContainer>
   )
 }
