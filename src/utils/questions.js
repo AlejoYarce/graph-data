@@ -4,7 +4,7 @@ const questions = {
     nitField: {
       type: 'text',
       label: 'NIT o Cédula',
-      name: 'NIT o Cédula',
+      name: 'Documento',
       placeholder: 'NIT o Cédula',
       isNumeric: true,
     },
@@ -208,7 +208,7 @@ const questions = {
     },
     reglamentoInteroChildren: {
       type: 'radio',
-      label: 'La última actualización fue:',
+      label: 'Última actualización del Reglamento Interno:',
       name: 'Reglamento Interno Actualización',
       options: [
         {
@@ -254,7 +254,7 @@ const questions = {
     },
     manualSancionesChildren: {
       type: 'radio',
-      label: 'La última actualización fue:',
+      label: 'Última actualización del Manual de Sanciones:',
       name: 'Manual de Sanciones Actualización',
       options: [
         {

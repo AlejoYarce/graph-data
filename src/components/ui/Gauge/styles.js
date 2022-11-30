@@ -28,7 +28,7 @@ export const GaugeCard = styled.div`
   border-radius: 50%;
   padding: 10px;
 
-  ${mq('sm')`
+  /* ${mq('sm')`
     width: 120px;
     height: 120px;
   `}
@@ -36,5 +36,5 @@ export const GaugeCard = styled.div`
   ${mq('md')`
     width: 200px;
     height: 200px;
-  `}
+  `} */
 `
