@@ -3,12 +3,17 @@ import { mq } from '~app/styles/media'
 
 export const GaugeContainer = styled.div`
   width: 100%;
-  padding: 50px 20px;
+  padding: 30px 20px;
   max-width: ${({ theme }) => theme.breakpoints.lg}px;
 
   ${mq('md')`
     padding: 50px 22px;
   `}
+`
+export const GaugeTitle = styled.h1`
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
 `
 export const GaugeContent = styled.div`
   display: flex;
@@ -37,4 +42,8 @@ export const GaugeCard = styled.div`
     width: 200px;
     height: 200px;
   `} */
+
+  text {
+    font-weight: 600;
+  }
 `

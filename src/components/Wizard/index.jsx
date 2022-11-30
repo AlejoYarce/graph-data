@@ -119,9 +119,21 @@ const Wizard = () => {
       {result && <Gauge values={result.values} />}
       {result && result.flags && (
         <div>
-          <ResultsCard data={result.flags} color="red" />
-          <ResultsCard data={result.flags} color="orange" />
-          <ResultsCard data={result.flags} color="green" />
+          <ResultsCard
+            title="Resultados Críticos"
+            data={result.flags}
+            color="red"
+          />
+          <ResultsCard
+            title="Resultados Intermedios"
+            data={result.flags}
+            color="orange"
+          />
+          <ResultsCard
+            title="Resultados Buenos"
+            data={result.flags}
+            color="green"
+          />
         </div>
       )}
     </Container>

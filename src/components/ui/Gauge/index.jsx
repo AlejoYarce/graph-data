@@ -2,11 +2,12 @@ import React from 'react'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
-import { GaugeContainer, GaugeContent, GaugeCard } from './styles'
+import { GaugeContainer, GaugeContent, GaugeCard, GaugeTitle } from './styles'
 
 const Gauge = ({ values }) => {
   return (
     <GaugeContainer>
+      <GaugeTitle>Resultados</GaugeTitle>
       <GaugeContent>
         <GaugeCard color='red'>
           <CircularProgressbar
@@ -22,7 +23,6 @@ const Gauge = ({ values }) => {
             })}
           />
         </GaugeCard>
-        
         <GaugeCard color='orange'>
           <CircularProgressbar
             value={values.orange}
