@@ -96,7 +96,7 @@ const Wizard = () => {
         {...wizardApi}
       />
       <SimpleFields
-        className={currentPage !== 3 && 'notVisible'}
+        className={currentPage !== 6 && 'notVisible'}
         form={questions.procesosAbiertos}
         prevPageHandler={prevPageHandler}
         onSubmit={onSubmitWizard}
