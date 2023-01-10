@@ -13,7 +13,7 @@ const dataMapper = (body) => {
 const handler = async (req, res) => {
   const baseId = process.env.AIRTABLE_BASE_ID
 
-  const url = `https://api.airtable.com/v0/${baseId}/Projects`
+  const url = `https://api.airtable.com/v0/${baseId}/tblAqn9tmihaldOzY`
   const { data } = await axios.post(
     url,
     { records: [{ fields: dataMapper(req.body) }] },
