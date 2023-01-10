@@ -4,7 +4,7 @@ const handler = async (req, res) => {
   const { id } = req.query
   const baseId = process.env.AIRTABLE_BASE_ID
 
-  const url = `https://api.airtable.com/v0/${baseId}/Projects?maxRecords=1&filterByFormula=NIT%3D'${id}'`
+  const url = `https://api.airtable.com/v0/${baseId}/tblAqn9tmihaldOzY?maxRecords=1&filterByFormula=Documento%3D'${id}'`
   const { data } = await axios.get(
     url,
     {
@@ -14,7 +14,7 @@ const handler = async (req, res) => {
     },
   )
 
-  res.status(200).json({ data: data.records })
+  res.status(200).json({ data: data.records[0] })
 }
 
 export default handler

@@ -17,7 +17,7 @@ const Navbar = () => {
       <NavBarContainer>
         <NavBarContent>
           <NavBarLogo onClick={() => router.push(ROUTES.HOME)}>
-            Formularios
+            Graph Data
           </NavBarLogo>
         </NavBarContent>
       </NavBarContainer>

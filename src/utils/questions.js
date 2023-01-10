@@ -148,7 +148,7 @@ const questions = {
     fields: [
       {
         type: 'radio',
-        label: 'Actualmente su empresa cuenta con:',
+        label: 'Actualmente su empresa cuenta con',
         name: 'Número Empleados',
         options: [
           {
@@ -208,7 +208,7 @@ const questions = {
     },
     reglamentoInteroChildren: {
       type: 'radio',
-      label: 'Última actualización del Reglamento Interno:',
+      label: 'Última actualización del Reglamento Interno',
       name: 'Reglamento Interno Actualización',
       options: [
         {
@@ -254,7 +254,7 @@ const questions = {
     },
     manualSancionesChildren: {
       type: 'radio',
-      label: 'Última actualización del Manual de Sanciones:',
+      label: 'Última actualización del Manual de Sanciones',
       name: 'Manual de Sanciones Actualización',
       options: [
         {
@@ -329,7 +329,7 @@ const questions = {
     fields: [
       {
         type: 'radio',
-        label: 'Actualmente la empresa está inmersa en procesos con:',
+        label: 'Actualmente la empresa está inmersa en procesos con',
         name: 'Procesos Con',
         options: [
           {
